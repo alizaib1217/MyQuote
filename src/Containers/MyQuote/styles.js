@@ -1,18 +1,19 @@
 import {ScaledSheet} from 'react-native-size-matters';
+import {Platform} from 'react-native'
 
 const styles = ScaledSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-between',
-    paddingHorizontal: '20@s',
+    paddingHorizontal:Platform.OS==="ios"? '20@s':'10@s',
   },
   myListView: {
     alignItems: 'flex-end',
   },
   myListIcon: {
     height: '30@s',
-    width: '30@s',
-    tintColor: '#002E5B',
+    width: '30@s', 
+    tintColor: '#fff',
   },
   quote: {
     fontSize: '20@s',
@@ -27,12 +28,13 @@ const styles = ScaledSheet.create({
   footerIcon: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'flex-end',
   },
   imageStyle: {
     height: '30@s',
     width: '30@s',
-    marginRight: '10@s',
-    tintColor: '#bbc3d3',
+    marginLeft: '10@s',
+    tintColor: '#fff',
   },
 });
 export default styles;

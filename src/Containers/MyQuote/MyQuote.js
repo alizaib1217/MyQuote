@@ -28,6 +28,7 @@ class MyQuote extends React.Component {
     writer: 'Marilyn Monroe',
     liked: false,
   };
+
   render() {
     const {liked, quote, writer} = this.state;
     return (
@@ -37,7 +38,7 @@ class MyQuote extends React.Component {
             <Image source={myList} style={styles.myListIcon} />
           </View>
           <View>
-            <Text style={styles.quote} >{quote}</Text>
+            <Text style={styles.quote}>{quote}</Text>
             <Text style={styles.writer}>-{writer}</Text>
           </View>
           <View style={styles.footerIcon}>
@@ -46,13 +47,21 @@ class MyQuote extends React.Component {
                 source={heart1}
                 style={{
                   ...styles.imageStyle,
-                  ...{tintColor: liked ? 'red' : '#bbc3d3'},
+                  ...{tintColor: liked ? 'red' : '#fff'},
                 }}
               />
             </TouchableOpacity>
-            <TouchableOpacity>
-              <Image source={share} style={styles.imageStyle} />
-            </TouchableOpacity>
+            {/*<TouchableOpacity>*/}
+            {/*  <Image*/}
+            {/*    source={heart2}*/}
+            {/*    style={{*/}
+            {/*      ...styles.imageStyle,*/}
+            {/*      ...{*/}
+            {/*        tintColor: '#fff',*/}
+            {/*      },*/}
+            {/*    }}*/}
+            {/*  />*/}
+            {/*</TouchableOpacity>*/}
             <TouchableOpacity onPress={() => Clipboard.setString(quote)}>
               <Image source={copy} style={styles.imageStyle} />
             </TouchableOpacity>
