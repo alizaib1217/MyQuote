@@ -5,14 +5,14 @@ const styles = ScaledSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-between',
-    paddingHorizontal:Platform.OS==="ios"? '20@s':'10@s',
+    paddingHorizontal:Platform.OS==="ios"? '20@s':'0@s',
   },
   myListView: {
     alignItems: 'flex-end',
   },
   myListIcon: {
     height: '30@s',
-    width: '30@s', 
+    width: '30@s',
     tintColor: '#fff',
   },
   quote: {
