@@ -25,6 +25,7 @@ import heart2 from '../../assets/icons/heart2.png';
 import share from '../../assets/icons/share.png';
 import copy from '../../assets/icons/copy.png';
 import myList from '../../assets/icons/myList.png';
+import FabButton from "./FabButton/FabButton";
 
 const getScreen1Styles = (animation, width) => {
   const image2TranslateX = animation.interpolate({
@@ -162,29 +163,34 @@ class MyQuote extends React.Component {
             keyExtractor={item => item.id}
           />
           <View style={styles.footerIcon}>
-            <TouchableOpacity onPress={() => this.setState({liked: !liked})}>
-              <Image
-                source={heart1}
-                style={{
-                  ...styles.imageStyle,
-                  ...{tintColor: liked ? 'red' : '#fff'},
-                }}
-              />
-            </TouchableOpacity>
-            {/*<TouchableOpacity>*/}
+            <FabButton
+              onCopyPress={()=>{alert('Copy')}}
+              onSharePress={()=>{alert('Share')}}
+              onHeartPress={()=>{alert('Heart')}}
+            />
+            {/*<TouchableOpacity onPress={() => this.setState({liked: !liked})}>*/}
             {/*  <Image*/}
-            {/*    source={heart2}*/}
+            {/*    source={heart1}*/}
             {/*    style={{*/}
             {/*      ...styles.imageStyle,*/}
-            {/*      ...{*/}
-            {/*        tintColor: '#fff',*/}
-            {/*      },*/}
+            {/*      ...{tintColor: liked ? 'red' : '#fff'},*/}
             {/*    }}*/}
             {/*  />*/}
             {/*</TouchableOpacity>*/}
-            <TouchableOpacity onPress={() => Clipboard.setString(quote)}>
-              <Image source={copy} style={styles.imageStyle} />
-            </TouchableOpacity>
+            {/*/!*<TouchableOpacity>*!/*/}
+            {/*/!*  <Image*!/*/}
+            {/*/!*    source={heart2}*!/*/}
+            {/*/!*    style={{*!/*/}
+            {/*/!*      ...styles.imageStyle,*!/*/}
+            {/*/!*      ...{*!/*/}
+            {/*/!*        tintColor: '#fff',*!/*/}
+            {/*/!*      },*!/*/}
+            {/*/!*    }}*!/*/}
+            {/*/!*  />*!/*/}
+            {/*/!*</TouchableOpacity>*!/*/}
+            {/*<TouchableOpacity onPress={() => Clipboard.setString(quote)}>*/}
+            {/*  <Image source={copy} style={styles.imageStyle} />*/}
+            {/*</TouchableOpacity>*/}
           </View>
         </View>
       </Container>
