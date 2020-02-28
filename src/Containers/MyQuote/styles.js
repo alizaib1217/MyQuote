@@ -1,11 +1,11 @@
 import {ScaledSheet} from 'react-native-size-matters';
-import {Platform} from 'react-native'
+import {Platform} from 'react-native';
 
 const styles = ScaledSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-between',
-    paddingHorizontal:Platform.OS==="ios"? '20@s':'0@s',
+    paddingHorizontal: Platform.OS === 'ios' ? '20@s' : '0@s',
   },
   myListView: {
     alignItems: 'flex-end',
@@ -14,6 +14,7 @@ const styles = ScaledSheet.create({
     height: '30@s',
     width: '30@s',
     tintColor: '#fff',
+
   },
   quote: {
     fontSize: '20@s',
@@ -29,6 +30,8 @@ const styles = ScaledSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
+
+
   },
   imageStyle: {
     height: '30@s',

@@ -114,7 +114,7 @@ class FabButton extends Component {
         <TouchableWithoutFeedback onPress={this.toggleMenu}>
           <Animated.View style={[styles.buttonStyle, styles.menu, rotation]}>
             <Image
-              style={{width: 25, height: 25, tintColor: 'white'}}
+              style={{width: 20, height: 20, tintColor: 'white'}}
               source={arrow}
             />
           </Animated.View>
@@ -128,14 +128,14 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     position: 'absolute',
-    bottom: 120,
-    right: 50,
+    bottom: 80,
+    right: 40,
   },
   buttonStyle: {
     position: 'absolute',
-    width: 55,
-    height: 55,
-    borderRadius: 30,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center',
     shadowRadius: 20,
@@ -147,28 +147,22 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   topButton: {
-    // position: 'absolute',
-    // bottom:80,
     width: 40,
     height: 40,
     borderRadius: 50 / 2,
-    backgroundColor: 'red',
+    backgroundColor: '#A5B3B9',
   },
   middleButton: {
-    // position: 'absolute',
-    // right:80,
     width: 40,
     height: 40,
     borderRadius: 50 / 2,
-    backgroundColor: 'red',
+    backgroundColor: '#A5B3B9',
   },
   secondary: {
-    // position: 'absolute',
-    // top:80,
     width: 40,
     height: 40,
     borderRadius: 50 / 2,
-    backgroundColor: 'red',
+    backgroundColor: '#A5B3B9',
   },
 });
 
