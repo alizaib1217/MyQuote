@@ -31,11 +31,29 @@ class MyQuote extends React.Component {
     quotes: quotes,
     liked: false,
     animation: new Animated.Value(0),
+    index: 0,
   };
+  handleScroll({viewableItems, changed}) {
+    const {animation, quotes} = this.state;
+    console.warn(viewableItems)
+
+
+    //   ({ viewableItems, changed }) => {
+    //     console.log('Visible items are', viewableItems));
+    //   console.log('Changed in this iteration', changed);
+    // });
+  }
+  onCopyQuote() {
+    const {} = this.state;
+  }
+
+  onShareQuote() {}
+
+  onLikeQuote() {}
 
   render() {
     const {width} = Dimensions.get('window');
-    const {animation, quotes} = this.state;
+    const {animation, quotes, index} = this.state;
     const screen1Styles = getScreen1Styles(animation, width);
     return (
       <Container backgroundImage={bg1} overlay>
@@ -54,6 +72,10 @@ class MyQuote extends React.Component {
                 },
               },
             ])}
+            onViewableItemsChanged={this.handleScroll.bind(this)}
+            viewabilityConfig={{
+              itemVisiblePercentThreshold: 50,
+            }}
             data={quotes}
             renderItem={({item, index}) => (
               <View
@@ -85,15 +107,9 @@ class MyQuote extends React.Component {
             keyExtractor={(item, index) => `${index}`}
           />
           <FabButton
-            onCopyPress={() => {
-              alert('Copy');
-            }}
-            onSharePress={() => {
-              alert('Share');
-            }}
-            onHeartPress={() => {
-              alert('Heart');
-            }}
+            onCopyPress={this.onCopyQuote.bind(this)}
+            onSharePress={this.onShareQuote.bind(this)}
+            onHeartPress={this.onLikeQuote.bind(this)}
           />
         </View>
       </Container>
