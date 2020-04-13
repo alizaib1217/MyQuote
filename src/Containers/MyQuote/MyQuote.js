@@ -25,24 +25,32 @@ import {
   getScreen1Styles,
   getScreen3Styles,
 } from './FabButton/animationFunctions';
+import {GetQuoteList} from '../../api/quotes';
 
 class MyQuote extends React.Component {
   state = {
-    quotes: quotes,
+    quotes: [],
     liked: false,
     animation: new Animated.Value(0),
-    index: 0,
+    currentViewableIndex: 0,
   };
+
+  componentDidMount(): void {
+    GetQuoteList()
+      .then(res => res.data)
+      .then(response => {
+        this.setState({
+          quotes: response,
+        });
+      })
+      .catch(error => console.warn(error));
+  }
+
   handleScroll({viewableItems, changed}) {
     const {animation, quotes} = this.state;
-    console.warn(viewableItems)
-
-
-    //   ({ viewableItems, changed }) => {
-    //     console.log('Visible items are', viewableItems));
-    //   console.log('Changed in this iteration', changed);
-    // });
+    console.warn(viewableItems);
   }
+
   onCopyQuote() {
     const {} = this.state;
   }
@@ -53,7 +61,7 @@ class MyQuote extends React.Component {
 
   render() {
     const {width} = Dimensions.get('window');
-    const {animation, quotes, index} = this.state;
+    const {animation, quotes} = this.state;
     const screen1Styles = getScreen1Styles(animation, width);
     return (
       <Container backgroundImage={bg1} overlay>
@@ -72,10 +80,11 @@ class MyQuote extends React.Component {
                 },
               },
             ])}
-            onViewableItemsChanged={this.handleScroll.bind(this)}
-            viewabilityConfig={{
-              itemVisiblePercentThreshold: 50,
-            }}
+            // onViewableItemsChanged={this.handleScroll.bind(this)}
+            // viewabilityConfig={{
+            //   itemVisiblePercentThreshold: 50,
+            // }}
+            extraData={this.state}
             data={quotes}
             renderItem={({item, index}) => (
               <View
@@ -91,7 +100,7 @@ class MyQuote extends React.Component {
                       ? screen1Styles.Image2
                       : getScreen3Styles(animation, width, index).Image1,
                   ]}>
-                  {item.quote}
+                  {item.text}
                 </Animated.Text>
                 <Animated.Text
                   style={[
@@ -100,7 +109,7 @@ class MyQuote extends React.Component {
                       ? screen1Styles.Image2
                       : getScreen3Styles(animation, width, index).Image1,
                   ]}>
-                  -{item.writer}
+                  -{item.author}
                 </Animated.Text>
               </View>
             )}
