@@ -13,6 +13,7 @@ import heart2 from '../../../assets/icons/heart2.png';
 import share from '../../../assets/icons/share.png';
 import copy from '../../../assets/icons/copy.png';
 import arrow from '../../../assets/icons/upArrow.png';
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 class FabButton extends Component {
   animation = new Animated.Value(0);
 
@@ -133,36 +134,41 @@ const styles = StyleSheet.create({
   },
   buttonStyle: {
     position: 'absolute',
-    width: 50,
-    height: 50,
-    borderRadius: 25,
+    width: wp('11%'),
+    height: wp('11%'),
+    borderRadius: wp('5.5%'),
     alignItems: 'center',
     justifyContent: 'center',
-    shadowRadius: 20,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowRadius: 1.41,
+    elevation: 2,
     shadowColor: '#F02A4B',
-    shadowOpacity: 0.3,
-    shadowOffset: {height: 10},
   },
   menu: {
-    backgroundColor: 'black',
+    // backgroundColor: '#FF0000',
+    // backgroundColor: '#002E5B',
+    backgroundColor: '#41436A',
   },
   topButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 50 / 2,
-    backgroundColor: '#A5B3B9',
+    width: wp('10%'),
+    height: wp('10%'),
+    borderRadius: wp('5%'),
+    backgroundColor: '#F54768',
   },
   middleButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 50 / 2,
-    backgroundColor: '#A5B3B9',
+    width: wp('10%'),
+    height: wp('10%'),
+    borderRadius: wp('5%'),
+    backgroundColor: '#974063',
   },
   secondary: {
-    width: 40,
-    height: 40,
-    borderRadius: 50 / 2,
-    backgroundColor: '#A5B3B9',
+    width: wp('10%'),
+    height: wp('10%'),
+    borderRadius: wp('5%'),
+    backgroundColor: '#FF9678',
   },
 });
 
