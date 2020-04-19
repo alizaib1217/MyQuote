@@ -19,7 +19,6 @@ class FabButton extends Component {
 
   toggleMenu = () => {
     const toValue = this.open ? 0 : 1;
-
     Animated.spring(this.animation, {
       toValue,
       friction: 10,
@@ -27,7 +26,38 @@ class FabButton extends Component {
     this.open = !this.open;
   };
 
+  onCopyQuote = () => {
+    const toValue = this.open ? 0 : 1;
+    Animated.spring(this.animation, {
+      toValue,
+      friction: 10,
+    }).start();
+    this.open = !this.open;
+    this.props.onCopyPress();
+  };
+
+  onShareQuote = () => {
+    const toValue = this.open ? 0 : 1;
+    Animated.spring(this.animation, {
+      toValue,
+      friction: 10,
+    }).start();
+    this.open = !this.open;
+    this.props.onSharePress();
+  };
+
+  onLikeQuote = () => {
+    const toValue = this.open ? 0 : 1;
+    Animated.spring(this.animation, {
+      toValue,
+      friction: 10,
+    }).start();
+    this.open = !this.open;
+    this.props.onHeartPress();
+  };
+
   render() {
+    const {liked} = this.props;
     const topStyle = {
       transform: [
         {
@@ -85,7 +115,7 @@ class FabButton extends Component {
     };
     return (
       <View style={styles.container}>
-        <TouchableWithoutFeedback onPress={this.props.onCopyPress}>
+        <TouchableWithoutFeedback onPress={this.onCopyQuote}>
           <Animated.View
             style={[styles.buttonStyle, styles.topButton, bottomStyle]}>
             <Image
@@ -94,7 +124,7 @@ class FabButton extends Component {
             />
           </Animated.View>
         </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={this.props.onSharePress}>
+        <TouchableWithoutFeedback onPress={this.onShareQuote}>
           <Animated.View
             style={[styles.buttonStyle, styles.middleButton, middleStyle]}>
             <Image
@@ -103,11 +133,11 @@ class FabButton extends Component {
             />
           </Animated.View>
         </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={this.props.onHeartPress}>
+        <TouchableWithoutFeedback onPress={this.onLikeQuote}>
           <Animated.View
             style={[styles.buttonStyle, styles.secondary, topStyle]}>
             <Image
-              style={{width: 20, height: 20, tintColor: 'white'}}
+              style={{width: 20, height: 20, tintColor: liked ? 'red' : '#fff'}}
               source={heart2}
             />
           </Animated.View>
@@ -145,30 +175,34 @@ const styles = StyleSheet.create({
     },
     shadowRadius: 1.41,
     elevation: 2,
-    shadowColor: '#F02A4B',
+    shadowColor: '#1D2973',
   },
   menu: {
     // backgroundColor: '#FF0000',
     // backgroundColor: '#002E5B',
-    backgroundColor: '#41436A',
+    // backgroundColor: '#1D2973',
+    // backgroundColor: '#8338EA',
+    backgroundColor: '#48B7EE',
   },
   topButton: {
     width: wp('10%'),
     height: wp('10%'),
     borderRadius: wp('5%'),
-    backgroundColor: '#F54768',
+    // backgroundColor: '#46D7Ac',
+    // backgroundColor: '#FF006C',
+    backgroundColor: '#23ACD6',
   },
   middleButton: {
     width: wp('10%'),
     height: wp('10%'),
     borderRadius: wp('5%'),
-    backgroundColor: '#974063',
+    backgroundColor: 'rgba(56,185,254,0.8)',
   },
   secondary: {
     width: wp('10%'),
     height: wp('10%'),
     borderRadius: wp('5%'),
-    backgroundColor: '#FF9678',
+    backgroundColor: '#48cdf6',
   },
 });
 
