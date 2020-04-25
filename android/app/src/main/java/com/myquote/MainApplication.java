@@ -1,4 +1,4 @@
-package com.myquote;
+package com.logicfab.thequotes;
 
 import android.app.Application;
 import android.content.Context;
