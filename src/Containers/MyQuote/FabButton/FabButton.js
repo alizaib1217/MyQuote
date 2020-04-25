@@ -66,7 +66,7 @@ class FabButton extends Component {
         {
           translateY: this.animation.interpolate({
             inputRange: [0, 1],
-            outputRange: [0, -80],
+            outputRange: [0, -60],
           }),
         },
       ],
@@ -79,7 +79,7 @@ class FabButton extends Component {
         {
           translateX: this.animation.interpolate({
             inputRange: [0, 1],
-            outputRange: [0, -85],
+            outputRange: [0, -65],
           }),
         },
       ],
@@ -92,13 +92,13 @@ class FabButton extends Component {
         {
           translateY: this.animation.interpolate({
             inputRange: [0, 1],
-            outputRange: [0, -60],
+            outputRange: [0, -50],
           }),
         },
         {
           translateX: this.animation.interpolate({
             inputRange: [0, 1],
-            outputRange: [0, -65],
+            outputRange: [0, -50],
           }),
         },
       ],
@@ -119,7 +119,7 @@ class FabButton extends Component {
           <Animated.View
             style={[styles.buttonStyle, styles.topButton, bottomStyle]}>
             <Image
-              style={{width: 20, height: 20, tintColor: 'white'}}
+              style={{width: wp('5%'), height: wp('5%'), tintColor: 'white'}}
               source={copy}
             />
           </Animated.View>
@@ -128,7 +128,7 @@ class FabButton extends Component {
           <Animated.View
             style={[styles.buttonStyle, styles.middleButton, middleStyle]}>
             <Image
-              style={{width: 20, height: 20, tintColor: 'white'}}
+              style={{width: wp('5%'), height: wp('5%'), tintColor: 'white'}}
               source={share}
             />
           </Animated.View>
@@ -137,7 +137,11 @@ class FabButton extends Component {
           <Animated.View
             style={[styles.buttonStyle, styles.secondary, topStyle]}>
             <Image
-              style={{width: 20, height: 20, tintColor: liked ? 'red' : '#fff'}}
+              style={{
+                width: wp('5%'),
+                height: wp('5%'),
+                tintColor: liked ? 'red' : '#fff',
+              }}
               source={heart2}
             />
           </Animated.View>
@@ -145,7 +149,7 @@ class FabButton extends Component {
         <TouchableWithoutFeedback onPress={this.toggleMenu}>
           <Animated.View style={[styles.buttonStyle, styles.menu, rotation]}>
             <Image
-              style={{width: 20, height: 20, tintColor: 'white'}}
+              style={{width: wp('5%'), height: wp('5%'), tintColor: 'white'}}
               source={arrow}
             />
           </Animated.View>
